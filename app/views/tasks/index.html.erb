@@ -4,9 +4,13 @@
   <% @tasks.each do |task|%>
     <li>
       <% if task.completed %>
-        <i class="fas fa-check-square"></i>
+        <%= link_to task_path(task), method: :patch do %>
+          <i class="fas fa-check-square"></i>
+        <% end %>
       <% else %>
+        <%= link_to task_path(task), method: :patch do %>
         <i class="fa-regular fa-square"></i>
+        <% end %>
       <% end %>
       <%= link_to task.title, task_path(task) %>
   </li>
